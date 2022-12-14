@@ -1,0 +1,21 @@
+org: vanunu1987
+app: create-pdf
+service: create-pdf
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+plugins:
+    - serverless-offline
+
+functions:
+  pdf:
+    handler: pdf.pdf
+    events:
+      - http:
+          path: pdf
+          method: post
+          cors: true
